@@ -12,7 +12,15 @@ public class Helper
      */
     public static double Converter(double value, int mode)
     {
-        return 0;
+        if(mode == 1)
+        {
+        	return (value * .62);
+        }
+        if(mode == 2)
+        {
+        	return (value * 1.609);
+        }
+    	return 0;
     }
     
     /*
@@ -22,7 +30,16 @@ public class Helper
      */
     public static int[] generateRandom(int count, int min, int max)
     {
-    	return null;
+        int[] array = new int[count];
+        Random generator = new Random();
+        generator.nextInt(max); 
+
+        
+        for (int i = min; i<max; i++)
+        {
+            generator.nextInt(max);
+        }
+        return array;
     }
     
     /*
@@ -30,7 +47,18 @@ public class Helper
      */
     public static int findSmallestNumberThatDivides (int n1, int n2)
     {
-    	return 0;
+    	int r=0, a, b;
+        a = (n1 > n2) ? n1 : n2; // a is greater number
+        b = (n1 < n2) ? n1 : n2; // b is smaller number
+ 
+        r = b;
+        while(a % b != 0)
+        {
+            r = a % b;
+            a = b;
+            b = r;
+        }
+        return r;
     }
     
     /*
@@ -38,7 +66,11 @@ public class Helper
      */
     public static double findMean(double[] values)
     {
-    	return 0;
+    	double sum = 0;
+        for (int i = 0; i < values.length; i++) {
+            sum += values[i];
+        }
+        return sum / values.length;
     }
     
     /*
@@ -48,7 +80,15 @@ public class Helper
      */
     public static boolean isMichiganSSN(long ssn)
     {
+    	boolean answer = true;
+    	long number;
+    	number = ssn / 1000000;
+    	if(number >= 362 && number <= 386)
+    	{
+    		return answer;
+    	}
     	return false;
+    	
     }
     
     /*
@@ -57,7 +97,9 @@ public class Helper
      */
     public static double calculateDoublingTime(double r)
     {
-    	return 0;
+    	double time;
+    	time = 71.05 / r;
+    	return time;
     }
     
     /*
